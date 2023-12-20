@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from './userReducer';
+import { Provider } from 'react-redux';
+// Example of importing Bootstrap CSS in index.js
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+const store = configureStore({
+  reducer: {
+    users : userReducer
+  }
+})
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}> 
+      <App />
+    </Provider>
+   
   </React.StrictMode>
 );
 
