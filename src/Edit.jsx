@@ -5,7 +5,7 @@ import { updateUser } from './userReducer';
 
 
 const Edit = () => {
-    const {id} = useParams();
+    const {id} = useParams();//getting id frm click
     const users = useSelector((state)=>state.users);
     const existingUser = users.filter((f)=>f.id == id);
     const {name,email} = existingUser[0];

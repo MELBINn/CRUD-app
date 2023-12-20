@@ -15,7 +15,13 @@ const Create = () => {
     const handleSubmit=(e)=>{
        e.preventDefault();
        //use reducer create action and call it frm hert
-       dispatch(addUser({id: users[users.length - 1].id + 1, name,email}))
+    //    dispatch(addUser({id: users[users.length - 1].id + 1, name,email}))
+    const nextUserId = users.length > 0 ? users[users.length - 1].id + 1 : 1;
+
+       dispatch(addUser({ id: nextUserId, name, email }));
+       //If there are existing users, it calculates the new user's ID by incrementing the ID of the last user.
+       //If there are no existing users, it sets the new user's ID to 
+
        navigate("/")
     }
 
